@@ -18,7 +18,7 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_proof",
     "sphinx_examples",
-    "hoverxref.extension",
+    # "hoverxref.extension",  # Temporarily disabled due to compatibility issues
 ]
 
 # Use Jupyter Book-style table of contents from docs/_toc.yml

@@ -6,6 +6,8 @@ root: intro
 parts:
 - caption: Getting Started
   chapters:
+  - file: installation
   - file: basic-usage
+  - file: cf-warp-usage
   - file: per-env-parameter-parallelization
 
