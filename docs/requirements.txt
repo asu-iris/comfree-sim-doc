@@ -3,6 +3,7 @@ matplotlib
 numpy
 sphinx-external-toc
 myst-nb
+linkify-it-py
 sphinx-book-theme
 sphinxcontrib-bibtex
 sphinx-inline-tabs
