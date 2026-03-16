@@ -2,8 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 # Comprehensive example: https://github.com/executablebooks/jupyter-book/blob/master/docs/_config.yml
 
-title: comfree_warp Documentation
+title: comfree-sim Documentation
 author: ASU IRIS
+logo: comfree_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
