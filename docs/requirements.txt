@@ -1,6 +1,10 @@
 jupyter-book
 matplotlib
 numpy
+sphinx-external-toc
+myst-nb
+sphinx-book-theme
+sphinxcontrib-bibtex
 sphinx-inline-tabs
 sphinx-examples
 sphinx-proof
