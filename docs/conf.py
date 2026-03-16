@@ -6,7 +6,7 @@ to avoid interactive Node.js prompts in non-interactive CI environments.
 
 from datetime import datetime
 
-project = "comfree_warp Documentation"
+project = "comfree_warp"
 author = "ASU IRIS"
 copyright = f"{datetime.now().year}, {author}"
 
@@ -72,6 +72,7 @@ mathjax3_config = {
 }
 
 html_theme = "sphinx_book_theme"
+html_title = "comfree_warp Documentation"
 html_static_path = ["_static"]
 html_theme_options = {
     "repository_url": "https://github.com/asu-iris/comfree-sim-doc",

@@ -1,7 +1,7 @@
 # Preliminary: Basic mujoco-warp Usage
 
 This page is a preliminary reference for the original upstream `mujoco_warp` package.
-It intentionally does not use `comfree_warp` wrappers.
+`mujoco-warp` is a Warp-based simulator backend for MuJoCo models, designed for fast GPU-accelerated simulation while keeping a MuJoCo-like workflow (`MjModel`/`MjData` -> `put_model`/`put_data` -> `step`).
 
 ## Imports
 
