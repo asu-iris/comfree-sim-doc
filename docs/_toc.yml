@@ -4,15 +4,8 @@
 format: jb-book
 root: intro
 parts:
-- caption: Basic examples 🪄
+- caption: Getting Started
   chapters:
-  - file: markdown
-  - file: notebooks
-  - file: markdown-notebooks
-- caption: Cool extensions 🕶️
-  chapters:
-  - file: intersphinx
-  - file: sphinx-examples
-  - file: sphinx-hoverxref
-  - file: sphinx-proof
+  - file: basic-usage
+  - file: contact-stiffness-damping
 
