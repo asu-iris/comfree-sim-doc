@@ -2,6 +2,7 @@
 
 This page is a preliminary reference for the original upstream `mujoco_warp` package.
 `mujoco-warp` is a Warp-based simulator backend for MuJoCo models, designed for fast GPU-accelerated simulation while keeping a MuJoCo-like workflow (`MjModel`/`MjData` -> `put_model`/`put_data` -> `step`).
+For full upstream documentation, see the [mujoco-warp docs](https://mujoco.readthedocs.io/en/latest/mjwarp/).
 
 ## Imports
 
@@ -43,3 +44,29 @@ for _ in range(100):
 - `put_model` and `put_data` convert MuJoCo structures into Warp-compatible structures.
 - `nconmax` and `njmax` control contact/constraint buffer sizes for Warp simulation.
 - `mjwarp.get_data_into(...)` is useful when external tools read from `mjd`.
+
+## comfree-sim Extends mujoco-warp
+
+`comfree_warp` (imported as `cfwarp`) builds directly on `mujoco_warp` and exposes the same API surface, so the workflow above carries over unchanged. The table below shows how each function relates to its `mujoco_warp` counterpart:
+
+| Function | Relationship | Notes |
+|---|---|---|
+| `put_model` | Extended | Calls `mjwarp.put_model`, then attaches `comfree_stiffness`/`comfree_damping` arrays to the model |
+| `put_data` | Extended | Calls `mjwarp.put_data`, then adds comfree constraint and velocity fields to the data |
+| `make_data` | Extended | Same extension pattern as `put_data` |
+| `get_data_into` | Extended | Same extension pattern as `put_data` |
+| `reset_data` | Delegated | Passes through directly to `mjwarp.reset_data` |
+| `step` | Replaced | Uses comfree's own physics pipeline instead of mjwarp's |
+| `forward` | Replaced | Uses comfree's own forward pass instead of mjwarp's |
+
+To migrate from `mujoco_warp` to `comfree_warp`, only the import line changes:
+
+```python
+# Before
+import mujoco_warp as mjwarp
+
+# After
+from comfree_warp import cf_warp as cfwarp
+```
+
+All `put_model`, `put_data`, `get_data_into`, and `reset_data` calls are signature-compatible — no other changes are required for basic usage.
