@@ -166,3 +166,29 @@ for step_idx in range(500):
 - `step` and `forward` keep the same role as in MJWarp, but run the ComFree solver and forward pipeline internally.
 - `get_data_into()` is useful, but CPU-GPU synchronization is relatively expensive, so use it only when needed.
 - `wp.ScopedCapture()` is recommended when you plan to repeat the same simulation step many times.
+
+## Visualization
+
+Viewer usage with `comfree_warp` is the same as with `mujoco_warp`. After calling `get_data_into()` to sync data back to MuJoCo, use the MuJoCo viewer:
+
+```python
+import mujoco.viewer
+
+# Sync Warp data back to MuJoCo
+cfwarp.get_data_into(mjd, mjm, d)
+
+# Visualize the current state
+with mujoco.viewer.launch_passive(mjm, mjd) as viewer:
+    viewer.sync()  # Update viewer with current mjd state
+```
+
+For interactive visualization in a loop:
+
+```python
+with mujoco.viewer.launch_passive(mjm, mjd) as viewer:
+    for step_idx in range(1000):
+        wp.capture_launch(graph)
+        wp.synchronize()
+        cfwarp.get_data_into(mjd, mjm, d)
+        viewer.sync()  # Update display with current state
+```

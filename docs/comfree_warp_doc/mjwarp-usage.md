@@ -48,6 +48,32 @@ for _ in range(100):
 - `nconmax` and `njmax` control contact/constraint buffer sizes for Warp simulation.
 - `mjwarp.get_data_into(...)` is useful when external tools read from `mjd`.
 
+## Visualization
+
+After calling `get_data_into()` to sync data back to the MuJoCo object `mjd`, you can use the MuJoCo viewer for visualization:
+
+```python
+import mujoco.viewer
+
+# Sync Warp data back to MuJoCo
+mjwarp.get_data_into(mjd, mjm, d)
+
+# Visualize the current state
+with mujoco.viewer.launch_passive(mjm, mjd) as viewer:
+    viewer.sync()  # Update viewer with current mjd state
+```
+
+For interactive visualization in a loop:
+
+```python
+with mujoco.viewer.launch_passive(mjm, mjd) as viewer:
+    for step_idx in range(1000):
+        wp.capture_launch(graph)
+        wp.synchronize()
+        mjwarp.get_data_into(mjd, mjm, d)
+        viewer.sync()  # Update display with current state
+```
+
 <!-- ## comfree-sim Extends mujoco-warp
 
 `comfree_warp` builds directly on `mujoco_warp` and re-exports its ComFree API at the top level, so the workflow above carries over with only an import change. The table below shows how each function relates to its `mujoco_warp` counterpart:
