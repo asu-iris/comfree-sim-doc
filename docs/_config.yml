@@ -72,4 +72,3 @@ sphinx:
     - sphinx_proof
     - sphinx_examples
     - hoverxref.extension
-

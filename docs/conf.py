@@ -73,12 +73,13 @@ mathjax3_config = {
 
 html_theme = "sphinx_book_theme"
 html_title = "comfree-sim Documentation"
-html_logo = "comfree_logo.png"
+html_logo = "comfree_logo2.png"
 html_static_path = ["_static"]
 html_theme_options = {
     "repository_url": "https://github.com/asu-iris/comfree-sim-doc",
     "repository_branch": "main",
     "path_to_docs": "docs",
+    "collapse_navigation": False,
     "use_repository_button": True,
     "use_issues_button": True,
 }

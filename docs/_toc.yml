@@ -3,11 +3,12 @@
 
 format: jb-book
 root: intro
-parts:
-- caption: Getting Started
-  chapters:
-  - file: installation
-  - file: basic-usage
-  - file: cf-warp-usage
-  - file: per-env-parameter-parallelization
-
+chapters:
+- file: comfree_warp_doc/index
+  sections:
+  - file: comfree_warp_doc/installation
+  - file: comfree_warp_doc/mjwarp-usage
+  - file: comfree_warp_doc/difference
+  - file: comfree_warp_doc/cfwarp-usage
+  - file: comfree_warp_doc/cfwarp-params
+  - file: comfree_warp_doc/known-issues
