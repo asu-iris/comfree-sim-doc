@@ -35,6 +35,29 @@ The main import for ComFree usage is:
 
 - `import comfree_warp`
 
+## Installation Methods
+
+### Option 1: Using pip
+
+```bash
+pip install mujoco
+pip install warp-lang
+
+git clone https://github.com/asu-iris/comfree_warp.git
+cd comfree_warp
+pip install -e .
+```
+
+### Option 2: Using uv
+
+`uv` is a fast Python package and environment manager. If your `comfree_warp` checkout defines dependencies in `pyproject.toml`, `uv` can install them together:
+
+```bash
+git clone https://github.com/asu-iris/comfree_warp.git
+cd comfree_warp
+uv sync
+```
+
 ## Verification
 
 After installation, verify that the main package imports correctly:
