@@ -1,0 +1,9 @@
+/* Keep the top-level ComFree Warp navigation expanded on every page. */
+.bd-links .bd-sidenav > li.toctree-l1.has-children > details > summary {
+  display: none !important;
+}
+
+.bd-links .bd-sidenav > li.toctree-l1.has-children > details > ul,
+.bd-links .bd-sidenav > li.toctree-l1.has-children > details:not([open]) > ul {
+  display: block !important;
+}

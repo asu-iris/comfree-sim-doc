@@ -41,9 +41,11 @@ You can build and view this documentation project locally - we recommend that yo
     # Install required Python dependencies (Sphinx etc.)
     pip install -r docs/requirements.txt
 
-    # Run Jupyter Book
-    jupyter-book build docs/
-    
+    # Build the docs with Sphinx
+    # Recent `jupyter-book` CLIs delegate to MyST and no longer support the
+    # legacy `jupyter-book build docs/` workflow used by this repository.
+    sphinx-build -M html docs docs/_build
+
     # View the docs with for instance firefox
     firefox docs/_build/html/index.html
 
