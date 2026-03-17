@@ -41,40 +41,28 @@ cd comfree_warp
 pip install -e .
 ```
 
-### Option 2: Using Conda
+### Option 2: Using uv
 
-#### Step 1: Create a Conda Environment
+uv is a fast, modern Python package installer. Install it first from [astral.sh](https://docs.astral.sh/uv/).
 
-```bash
-conda create -n comfree-warp python=3.10
-conda activate comfree-warp
-```
-
-#### Step 2: Install MuJoCo
-
-```bash
-conda install -c conda-forge mujoco
-```
-
-#### Step 3: Install Warp
-
-```bash
-pip install warp-lang
-```
-
-**Note:** Warp-lang is currently available through pip. If conda packages are available for your system, you can attempt `conda install -c nvidia warp-lang`.
-
-#### Step 4: Clone and Install ComFree-Warp
+#### Step 1: Clone ComFree-Warp
 
 ```bash
 git clone https://github.com/asu-iris/comfree_warp.git
 cd comfree_warp
-pip install -e .
+```
+
+#### Step 2: Install Dependencies and ComFree-Warp
+
+uv will automatically install all dependencies (MuJoCo and Warp) defined in `pyproject.toml`:
+
+```bash
+uv sync
 ```
 
 ## Complete Installation Script
 
-### For pip users:
+### Using pip:
 
 ```bash
 #!/bin/bash
@@ -93,24 +81,14 @@ pip install -e .
 python -c "import mujoco; import warp as wp; import comfree_warp; print('Installation successful!')"
 ```
 
-### For Conda users:
+### Using uv:
 
 ```bash
 #!/bin/bash
-# Create conda environment
-conda create -n comfree-warp python=3.10
-conda activate comfree-warp
-
-# Install MuJoCo
-conda install -c conda-forge mujoco
-
-# Install Warp
-pip install warp-lang
-
-# Clone and install ComFree-Warp
+# Clone and install ComFree-Warp (all dependencies from pyproject.toml)
 git clone https://github.com/asu-iris/comfree_warp.git
 cd comfree_warp
-pip install -e .
+uv sync
 
 # Verify installation
 python -c "import mujoco; import warp as wp; import comfree_warp; print('Installation successful!')"
